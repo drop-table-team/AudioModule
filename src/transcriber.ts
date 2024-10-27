@@ -36,7 +36,7 @@ async function worker(): Promise<void> {
             .on('end', async () => {
                 console.log('File converted successfully');
                 try {
-                    let transcription = await whisper(outputFilePath, {modelName: 'base'});
+                    let transcription = await whisper(outputFilePath, {modelName: 'medium'});
                     let content = transcription.map((t: any) => t.speech).join(' ');
                     addToOllamaQueue({transcription: content, file: outputFilePath});
                 } catch (error) {
