@@ -19,7 +19,12 @@ app.post('/input', upload.single('audio'), async (req: Request, res: Response): 
 
     addToQueue(req.file);
 
-    res.status(200).json({message: 'File uploaded successfully'});
+    res.status(200).json({
+        title: 'File uploaded',
+        short_summary: 'File uploaded',
+        summary: 'The file has been uploaded and is being processed',
+        tags: ['file', 'upload', 'processing'],
+    });
 });
 
 // Start the server
